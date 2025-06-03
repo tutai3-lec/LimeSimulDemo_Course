@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
-<sdf version="1.5">
+<sdf version="1.4">
   <model name="coke_can">
     <link name="link">
       <inertial>
         <pose>0 0 0.06 0 0 0</pose>
-        <mass>0.030</mass>
+        <mass>0.390</mass>
         <inertia>
           <ixx>0.00055575</ixx>
           <ixy>0</ixy>
