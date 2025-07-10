@@ -84,7 +84,7 @@ etc.
 ## Related repositories and sites
 - [ros_actor](https://github.com/momoiorg-repository/ros_actor)
 - [pytwb](https://github.com/momoiorg-repository/pytwb)
-- [vector_map](https://github.com/RobotSpatialCognition/vector)
+- [vector_map](https://github.com/RobotSpatialCognition/vector_map)
 
 ## Dependencies  
 Special thanks to the following works:  
