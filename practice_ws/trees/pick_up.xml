@@ -1,0 +1,11 @@
+<root>
+    <BehaviorTree ID="pick_up">
+    <Sequence name="main">
+        <Open name="gripper_open" />
+        <!-- <Sleep name="sleep" time="[5]"/> -->
+        <Pick name="pick_pose" />
+        <Close name="gripper_close" />
+        <ArmHome name="home"/>
+    </Sequence>
+    </BehaviorTree>
+</root>
