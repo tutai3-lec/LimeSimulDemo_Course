@@ -47,7 +47,6 @@ def d_box(img):
     try:
         x, y, s = calc_centroid(mask)
         print(f"{s=}")
-        return x, y
     except TypeError:
         return None
 
