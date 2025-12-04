@@ -7,7 +7,6 @@
         <GoToPose name="move_to_place_loc"/>
         <ReachObj name="reach_ball" />
         <Pick name="pick"/>
-        <!-- hello? -->
         <ObjectLocation name="object_location"/>
         <Shift name="shift" target="[0.175]"/>
         <Sleep name="sleep" time="[3]"/>
