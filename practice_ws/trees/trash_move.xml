@@ -1,7 +1,7 @@
 <root>
     <BehaviorTree ID="trash_move">
     <Sequence name="main">
-        <SetDetector name="set ball_detector" func_name="my_dtcs.d_ball"/>
+        <SetDetector name="set ball_detector" func_name="my_dtcs.d_ball" id="None"/>
         <Watch name="watch_ball"/>
         <GetObjFront name="get_ball_front"/>
         <GoToPose name="move_to_place_loc"/>
