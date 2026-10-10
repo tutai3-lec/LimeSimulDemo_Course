@@ -1,6 +1,5 @@
 #!/bin/bash
 #   OneStageROS + fake bringup (run_turtle_base 等) が起動済みの環境に追加で起動する
-#   地図の保存は別端末で run_map_save --path <保存先> を実行する
 
 # ----- コマンドライン引数のパース -----
 while [[ $# -gt 0 ]]; do
@@ -19,8 +18,8 @@ done
 source /opt/ros/humble/setup.bash
 source ~/turtlebot3_ws/install/setup.bash
 
-echo "=== run_mapping ==="
+echo "=== run_moveit ==="
 echo
 
-# Cartographer(+RViz)  wall-clock
-ros2 launch turtlebot3_lime_cartographer cartographer.launch.py use_sim:=false
+# MoveIt (move_group + RViz)  wall-clock
+ros2 launch turtlebot3_lime_moveit_config moveit_core.launch.py
