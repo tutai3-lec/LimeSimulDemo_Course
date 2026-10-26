@@ -17,10 +17,10 @@ RUN pip3 install numpy==1.26.4
 RUN pip3 install pyquaternion matplotlib transforms3d simple-pid \
  numpy-quaternion pyrealsense2
 
-# Node.js のインストール
+ARG NODE_VERSION=24.22.1
 RUN apt-get update && apt-get install -y nodejs npm && \
     npm install n -g && \
-    n stable && \
+    n ${NODE_VERSION} && \
     apt purge -y nodejs npm && \
     apt autoremove -y && \
     hash -r
@@ -99,9 +99,6 @@ RUN F=/opt/ros/${ROS_DISTRO}/local/lib/python3.10/dist-packages/rosbridge_librar
  && grep -q 'return list(standard_b64decode(msg))' "$F" \
  && sed -i 's/return list(standard_b64decode(msg))/return array.array("B", standard_b64decode(msg))/' "$F"
 
-RUN sed -i -E 's/^([[:space:]]*max_laser_range:[[:space:]]*)[0-9.]+/\13.4/' \
-    /opt/ros/humble/share/slam_toolbox/config/mapper_params_*.yaml
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
  ros-humble-webots-ros2 \
  ros-humble-webots-ros2-driver \
@@ -132,6 +129,10 @@ RUN sed -i 's/^\(\s*base_frame_id:\s*\)"base_footprint"/\1"base_link"/' \
       /root/turtlebot3_ws/turtlebot3_lime/turtlebot3_lime_navigation2/param/turtlebot3.yaml \
  && grep -q 'base_frame_id: "base_link"' \
       /root/turtlebot3_ws/turtlebot3_lime/turtlebot3_lime_navigation2/param/turtlebot3.yaml
+
+RUN sed -i -E -e 's/^(TRAJECTORY_BUILDER_2D\.max_range[[:space:]]*=[[:space:]]*)[0-9.]+/\112.0/' \
+	-e 's/^(TRAJECTORY_BUILDER_2D\.missing_data_ray_length[[:space:]]*=[[:space:]]*)[0-9.]+/\112.0/' \
+	/root/turtlebot3_ws/turtlebot3_lime/turtlebot3_lime_cartographer/config/turtlebot3_2d.lua
 
 WORKDIR /root/turtlebot3_ws
 

@@ -88,7 +88,7 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <model name='sim_house'>
-      <pose>1.48679 1.14707 0 0 -0 0</pose>
+      <pose>2.16464 1.82515 0 0 -0 0</pose>
       <link name='Wall_0'>
         <collision name='Wall_0_Collision'>
           <geometry>
@@ -1655,7 +1655,7 @@
     <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so"/>
     <model name='spawn'>
       <static>true</static>
-      <pose>-0.6500 -0.6500 0 0 0 0.000000</pose>
+      <pose>0 0 0 0 0 0</pose>
     </model>
   </world>
 </sdf>

@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="building_editor_world">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"></plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"></plugin>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"></plugin>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_0">
+      <static>true</static>
+      <pose>4.8200 1.6042 0.5000 0 0 -1.710308</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>6.8744 0.1000 1.0000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>6.8744 0.1000 1.0000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_1">
+      <static>true</static>
+      <pose>1.5318 -1.3563 0.5000 0 0 2.985146</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>5.6899 0.1000 1.0000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>5.6899 0.1000 1.0000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_2">
+      <static>true</static>
+      <pose>0.5489 2.2656 0.5000 0 0 1.049075</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>7.3330 0.1000 1.0000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>7.3330 0.1000 1.0000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_3">
+      <static>true</static>
+      <pose>3.8371 5.2262 0.5000 0 0 -0.148237</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2.9542 0.1000 1.0000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.9542 0.1000 1.0000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="spawn">
+      <static>true</static>
+      <pose>0.0000 0.0000 0 0 0 0.000000</pose>
+    </model>
+  </world>
+  <!-- building_editor_state:v1 eyJ2ZXJzaW9uIjoxLCJzZXR0aW5ncyI6eyJncmlkU2l6ZSI6IjEiLCJ3YWxsVGhpY2tuZXNzIjoiMC4xIiwid2FsbEhlaWdodCI6IjEuMCIsImRvb3JIZWlnaHQiOiIyLjAifSwid2FsbHMiOlt7IngxIjotMy40OCwieTEiOjEsIngyIjozLjE2LCJ5MiI6Mi43OCwidGhpY2tuZXNzIjowLjF9LHsieDEiOjMuMTYsInkxIjoyLjc4LCJ4MiI6NC41NCwieTIiOi0yLjc0LCJ0aGlja25lc3MiOjAuMX0seyJ4MSI6NC41NCwieTEiOi0yLjc0LCJ4MiI6LTIuNzQsInkyIjotMS44NiwidGhpY2tuZXNzIjowLjF9LHsieDEiOi0yLjc0LCJ5MSI6LTEuODYsIngyIjotMy40OCwieTIiOjEsInRoaWNrbmVzcyI6MC4xfV0sImRvb3JzIjpbXSwib2JqZWN0cyI6W10sInJvYm90UG9zZSI6eyJ4IjozLjIsInkiOi0xLjkyLCJ5YXciOjEuOTcyMjIyMDU0NzUzNTkyMn19 -->
+</sdf>
