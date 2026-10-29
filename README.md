@@ -28,6 +28,15 @@ Y
 
 The installation is now complete.
 
+### Using the GPU on WSL2 (Windows)
+By default, Gazebo / RViz are rendered by the CPU (llvmpipe). On WSL2, the GPU of the Windows host (including onboard GPUs such as Intel Iris Xe) can be used by adding `docker-compose.wsl-gpu.yaml`.
+The window is shown on WSLg (`DISPLAY=:0`), so an external X server such as VcXsrv is not needed.
+```
+$ docker compose -f docker-compose.yaml -f docker-compose.wsl-gpu.yaml up
+```
+To check, run `glxinfo -B` in the container (`apt install mesa-utils`). The renderer should be `D3D12 (<GPU name>)`, not `llvmpipe`.
+Do not use this file on native Linux, because `/dev/dxg` and `/usr/lib/wsl` exist only on WSL2.
+
 ## Demo Code Execution
 
 
