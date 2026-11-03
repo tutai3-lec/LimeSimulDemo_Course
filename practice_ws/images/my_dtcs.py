@@ -30,13 +30,13 @@ def calc_centroid(mask):
         return None   
 ##　↑↑↑↑↑↑↑inRangeWrap, calc_centroidは変更しないでください↑↑↑↑↑↑↑
 
-def d_ball(img):
+def d_orange(img):
     # 画像の読み込み
     draw_img = img.copy() # 元データを書き換えないようにコピーを作成
     # HSVに変換（色指定はRGBよりHSVの方が扱いやすい）
     hsv_img = cv2.cvtColor(draw_img, cv2.COLOR_BGR2HSV)
 
-    # BGR空間での抽出範囲
+    # HSV空間での抽出範囲
     ## ボール
     lower = np.array([0, 220, 170]) # 色相, 彩度, 明度 の下限
     upper = np.array([10, 240, 255]) # 色相, 彩度, 明度 の上限
@@ -51,26 +51,18 @@ def d_ball(img):
     except TypeError:
         return None
 
-def d_coke(img):
-    # 画像の読み込み
-    draw_img = img.copy() # 元データを書き換えないようにコピーを作成
-    # HSVに変換（色指定はRGBよりHSVの方が扱いやすい）
-    hsv_img = cv2.cvtColor(draw_img, cv2.COLOR_BGR2HSV)
+def d_red(img):
+   # d_orangeをもとに自作してください。
+   # 自作する際は、下の"pass"を消して記述すること
+   pass
 
-    # BGR空間での抽出範囲
-    ## コーラ缶
-    lower = np.array([165, 150, 0]) # 色相, 彩度, 明度 の下限
-    upper = np.array([180, 255, 255]) # 色相, 彩度, 明度 の上限
+def d_blue(img):
+   # 自作する際は、下の"pass"を消して記述すること
+   pass
 
-    # 指定範囲に入る画素を抽出（白が該当部分）
-    mask = inRangeWrap(hsv_img, lower, upper)
-    
-    try:
-        x, y, s = calc_centroid(mask)
-        print(f"{s=}")
-        return x, y
-    except TypeError:
-        return None
+def d_green(img):
+   # 自作する際は、下の"pass"を消して記述すること
+   pass
 
 def d_circle(img):
     # 画像読み込み

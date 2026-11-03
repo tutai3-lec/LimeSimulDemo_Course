@@ -1,7 +1,7 @@
 <root>
     <BehaviorTree ID="test_retry">
     <Sequence name="main">
-        <SetDetector name="set coke_detector" func_name="my_dtcs.d_coke" id="None"/>
+        <SetDetector name="set coke_detector" func_name="my_dtcs.d_red" id="None"/>
         <!-- 子が FAILURE しても最大5回までやり直す。1回でも SUCCESS なら即 SUCCESS -->
         <Retry name="watch_until_found" num_failures="[5]">
             <Sequence name="try_watch">

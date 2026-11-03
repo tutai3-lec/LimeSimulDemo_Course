@@ -3,14 +3,14 @@
     <Selector name="what_do_i_see">
         <!-- orange ball が見えたら A地点へ -->
         <Sequence name="ball_case">
-            <SetDetector name="set ball_detector" func_name="my_dtcs.d_ball" id="None"/>
+            <SetDetector name="set ball_detector" func_name="my_dtcs.d_orange" id="None"/>
             <Watch name="watch_ball"/>
             <SetDestination name="set_A" value="[(0.0, 3.0, 0)]"/>
             <GoToPose name="go_to_A"/>
         </Sequence>
         <!-- coke が見えたら B地点へ -->
         <Sequence name="coke_case">
-            <SetDetector name="set coke_detector" func_name="my_dtcs.d_coke" id="None"/>
+            <SetDetector name="set coke_detector" func_name="my_dtcs.d_red" id="None"/>
             <Watch name="watch_coke"/>
             <SetDestination name="set_B" value="[(3.0, 0.0, 0)]"/>
             <GoToPose name="go_to_B"/>

@@ -17,6 +17,6 @@ result = cv2.bitwise_and(draw_img, draw_img, mask=mask)
 
 # 画像表示
 cv2.imshow("Original", draw_img)
-cv2.imshow("Mask (BGR)", mask)
-cv2.imshow("Result (BGR)", result)
+cv2.imshow("Mask", mask)
+cv2.imshow("Result", result)
 cv2.waitKey(0)  # 何かのキーが押されるまでウィンドウを表示
