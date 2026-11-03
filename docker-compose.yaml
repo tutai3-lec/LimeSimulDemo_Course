@@ -12,17 +12,22 @@ services:
     ports: 
       - "127.0.0.1:3000:3000"
       - "127.0.0.1:8080:8080"
+    devices:
+      - /dev/dxg:/dev/dxg
     environment:
-      - DISPLAY=${DISPLAY}
+      - DISPLAY=:0
       - WAYLAND_DISPLAY=${WAYLAND_DISPLAY}
       - XDG_RUNTIME_DIR=/tmp
       - PULSE_SERVER=${PULSE_SERVER}
       - ONESTAGE_EXPOSE=true
       - BUILDING_EDITOR_EXPOSE=true
+      - LD_LIBRARY_PATH=/usr/lib/wsl/lib
+      - GALLIUM_DRIVER=d3d12
     volumes:
       - ./pytwb_ws:/root/pytwb_ws:rw
       - ./bin:/root/bin:rw
       - ./roscommon:/root/roscommon:rw
+      - /usr/lib/wsl:/usr/lib/wsl:ro
       - $HOME/.Xauthority:/root/.Xauthority
       - ./practice_ws:/root/practice_ws:rw
       - type: bind
