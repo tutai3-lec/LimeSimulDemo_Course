@@ -189,6 +189,18 @@ class Tb3NavigationSystem(SubSystem):
 #        return (result.status == GoalStatus.STATUS_SUCCEEDED)
         return True
 
+    # stop navigation by sending the current pose as a new goal
+    # (aborting a goto transaction does not cancel the Nav2 goal)
+    @actor
+    def stop_nav(self):
+        trans = self.run_actor('map_trans', base_link_name())
+        t = trans.transform
+        r = t.rotation
+        _, _, theta = transforms3d.euler.quat2euler([r.w, r.x, r.y, r.z])
+        print(f'stop_nav at x:{t.translation.x}, y:{t.translation.y}')
+        self.run_actor('goto', t.translation.x, t.translation.y, theta)
+        return True
+
     @actor
     def goto_deg(self, x, y, degree):
         rad = radians(degree)

@@ -1,0 +1,22 @@
+<root>
+    <BehaviorTree ID="test_parallel">
+    <Sequence name="main">
+        <SetDestination name="set_far" value="[(4.0, 3.0, 0)]"/>
+        <!-- SuccessOnOne: 腕の動きが先に終わったら、移動も止める -->
+        <!-- SuccessOnAll: 腕の動きも移動も両方成功するまで待つ -->
+        <Parallel name="move_and_arm" policy="SuccessOnOne">
+            <GoToPose name="go_far"/>
+            <Sequence name="arm_motion">
+                <PickUp name="lift_arm"/>
+                <Open name="open_gripper"/>
+                <Close name="close_gripper"/>
+                <ArmHome name="arm_home"/>
+            </Sequence>
+        </Parallel>
+        <!-- Parallel が GoToPose を止めても Nav2 のゴールは残るので、現在位置をゴールにして止める -->
+        <StopNav name="stop_nav"/>
+        <SetBlackboard name="msg" key="msg" value="arm motion done, stop moving"/>
+        <ShowBlackboard name="show" key="msg"/>
+    </Sequence>
+    </BehaviorTree>
+</root>

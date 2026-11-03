@@ -31,6 +31,13 @@ class GetLocation(py_trees.behaviour.Behaviour):
         self.logger.info(f"Terminated with status {new_status}")
     
 @behavior
+class StopNav(ActorBT):
+    desc = 'stop navigation at the current pose'
+
+    def __init__(self, name, node):
+        super().__init__(name, 'stop_nav')
+
+@behavior
 class GoToPose(ActorBT):
     desc = 'actual move action'
     

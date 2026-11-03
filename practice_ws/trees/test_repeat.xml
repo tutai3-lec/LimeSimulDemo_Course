@@ -1,0 +1,17 @@
+<root>
+    <BehaviorTree ID="test_repeat">
+    <Sequence name="main">
+        <!-- 子が3回 SUCCESS したら Repeat も SUCCESS。途中で1回でも FAILURE なら即 FAILURE -->
+        <Repeat name="patrol_3times" num_success="[3]">
+            <Sequence name="patrol">
+                <SetDestination name="set_A" value="[(2.0, 0, 0)]"/>
+                <GoToPose name="go_to_A"/>
+                <SetDestination name="set_B" value="[(0.0, 1.0, 180)]"/>
+                <GoToPose name="go_to_B"/>
+            </Sequence>
+        </Repeat>
+        <SetBlackboard name="done" key="result" value="patrol finished"/>
+        <ShowBlackboard name="show_result" key="result"/>
+    </Sequence>
+    </BehaviorTree>
+</root>

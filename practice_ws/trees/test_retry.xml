@@ -1,0 +1,15 @@
+<root>
+    <BehaviorTree ID="test_retry">
+    <Sequence name="main">
+        <SetDetector name="set coke_detector" func_name="my_dtcs.d_coke" id="None"/>
+        <!-- 子が FAILURE しても最大5回までやり直す。1回でも SUCCESS なら即 SUCCESS -->
+        <Retry name="watch_until_found" num_failures="[5]">
+            <Sequence name="try_watch">
+                <Sleep name="wait" time="[1]"/>
+                <Watch name="watch_coke"/>   <!-- 見えなければ FAILURE → やり直し -->
+            </Sequence>
+        </Retry>
+        <ShowBlackboard name="show_target" key="target_pose"/>
+    </Sequence>
+    </BehaviorTree>
+</root>
