@@ -28,13 +28,8 @@ class Fit2(ActorBT):
 @behavior
 class Pick(ActorBT):
     desc = 'pick object'
-
     def __init__(self, name, node):
-        super().__init__(name, 
-            (
-                ('pick', None)
-            )
-        )
+        super().__init__(name, 'pick')
 
 @behavior
 class Place(ActorBT):
