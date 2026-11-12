@@ -6,7 +6,9 @@ services:
       dockerfile: Dockerfile.server
       args:
         ROS_DISTRO: humble
-    network_mode: host
+          #network_mode: host
+    ports:
+      - "127.0.0.1:5901:5901"
     privileged: true
     ipc: host
     runtime: nvidia
